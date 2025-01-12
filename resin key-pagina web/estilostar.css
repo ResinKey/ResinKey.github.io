@@ -1,0 +1,651 @@
+
+
+
+
+
+
+
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'popins', sans-serif;
+}
+
+@font-face {
+    font-family: 'Resin';
+    src: url('fuente/Gagalin-Regular/Gagalin-Regular.otf') format('truetype');
+}
+
+
+body{
+    background-image: url(imagenes/que\ este\ si\ sirva.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    font-size:1rem;
+}
+
+/* header*/
+
+header {
+    
+    height: auto;
+    width: 100%;
+    position: fixed;
+   
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.7s;
+    
+    padding: 0 5%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    text-align: center; 
+    align-items: center; 
+}
+
+header.abajo{
+    background: #4f7a6e;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+
+.logo {
+  
+    width: 110px;
+    height: auto; 
+
+}
+
+.titulo {
+    flex: 1;
+    display: flex;
+    white-space: nowrap;
+    color: black;
+    font-size:400%;
+    font-family: 'Resin', sans-serif;
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+  
+}
+
+/*menu*/
+
+.menu-contenedor{
+    position: relative;
+    display: flex;
+ 
+    flex-wrap: nowrap;
+    gap: 0;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    margin-top: -20px;
+
+}
+
+
+ul a {
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 1.4rem;
+    display: flex;
+    flex-wrap: nowrap;
+    
+}
+
+
+
+
+
+
+
+
+
+button{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 4rem;
+    height: 4rem;
+    border:0;
+    background-color: transparent;
+    gap:.65rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+button > div{
+    background: black;
+    height: 5px;
+    width: 45px;
+    border-radius: 5px;
+    transition: all .5s;
+    transform-origin: left;
+}
+
+button:hover div:first-child{
+    transform: rotate(45deg);
+}
+
+button:hover div:nth-child(2){
+    opacity:0;
+}
+
+button:hover div:nth-child(3){
+    transform: rotate(-45deg);
+}
+
+
+button li{
+    position: relative;
+    display: inline-block;   
+}
+
+button li:hover ul{
+    display: block;
+}
+
+button ul{
+    display: none;
+    position: absolute;
+    top:100%;
+    background-color:var(--black);
+    right: auto;
+    width: 200px;
+    height: 100px;   
+}
+
+.menu-contenedor:hover ul{
+    display: block;
+}
+
+
+ul{
+
+    position:relative;
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding:10px;
+    margin:0;
+
+    
+    z-index: 1;
+}
+
+
+ul li{
+    
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+  
+   
+    justify-content: left;
+  
+}
+
+ul li a{
+ 
+    position: relative;
+   
+    font-size: 1.5em;
+    text-decoration: none;
+    
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke:1px rgba(255,255,255,0.5);
+    
+}
+
+ul li a::before{
+    
+    content:attr(data-text);
+    position:absolute;
+    color: var(--clr);
+    width: 0;
+    left: -2px;
+    overflow:hidden;
+    transition:1s;
+    border-right: 8px solid var(--clr);
+    -webkit-text-stroke: 1px var(--clr);
+   
+    
+}
+
+ul li a:hover::before{
+    width: 100%;
+    filter: drop-shadow(0 0 25px var(--clr));
+}
+
+
+
+
+
+
+.slogan{
+    display: flex;
+    width: 100%;
+    height: 90%;
+    margin: 0 auto;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+
+.slogan img{
+    width: auto;
+    max-width: 100%;
+    transition: all 300ms;
+    position: relative;
+    margin-top: 10%;
+    
+}
+
+
+
+
+
+.imagenes {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    padding-top: 5px;
+}
+
+
+.imagen-container{
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+
+.imagen-container img{
+    width: 90%; 
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.imagen-container:hover img{
+    width: 250px;
+    opacity: 1;
+    filter: contrast(120%);
+    cursor: crosshair;
+}
+
+
+
+
+.imagen-container p{
+    display: none;
+    background-color: var(--shadow);
+    font-size: 14px; 
+    color: #ffffff; 
+    font-family: 'Resin', sans-serif;
+}
+
+.imagen-container:hover p{
+    display: block;
+}
+
+.imagenes img:hover{
+    cursor: crosshair;
+    width: 100%;
+    opacity: 1;
+    filter:contrast(120%);
+}
+
+#si{
+    background-color: var(--black);
+    width: 100%;
+    height: 50%;
+    position: relative;
+    padding: 5px;
+}
+
+
+
+
+:root{
+    --glow-color:#b2cac0;
+    --black: #1a1e23;
+    --shadow:#ffffff50;
+}
+
+
+
+#si,
+#si::after,
+#si::before{
+    box-sizing: border-box;
+}
+#si,
+.no{
+    height: 10%;
+    width: 100%;
+    overflow: hidden;
+}
+.no{
+    min-height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--black);
+    margin-top: 10px;
+}
+.neon-btn{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    position: relative;
+    color: var(--glow-color);
+    cursor: pointer;
+    padding: 0.35em 1.2em;
+    border: 0.15em solid var(--glow-color);
+    border-radius: 0.8em;
+    background: none;
+    perspective: 2em;
+    font-family: "Poppins", sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 1em;
+    box-shadow: inset   0 0 0.5em 0 var(--glow-color),
+                        0 0 0.5em 0 var(--glow-color);
+    animation: border-flicker 2s linear infinite;
+}
+.neon-text{
+    float:left;
+    margin-right: -0.8;
+    text-shadow:    0 0 0.125em var(--shadow),
+                    0 0 0.45em var(--glow-color);
+    animation: text-flicker 3s linear infinite;
+}
+.faulty-letter{
+    opacity: 0.5;
+    animation: faulty-flicker 2s linear infinite;
+}
+.neon-btn::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+    filter: blur(1em);
+    background: var(--glow-color);
+    pointer-events: none;
+    transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+}
+.neon-btn::after{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    border-radius: 0.6em;
+    background-color: var(--glow-color);
+    box-shadow: 0 0 2em 0.2em var(--glow-color);
+    transition: opacity 100ms linear;
+}
+.neon-btn:hover{
+    color: var(--black);
+    text-shadow: none;
+    animation: none;
+}
+.neon-btn:hover .neon-text{
+    animation: none;
+}
+.neon-btn:hover::before{
+    filter: blur(1.5em);
+    opacity: 1;
+}
+.neon-btn:hover::after{
+    opacity: 1;
+}
+.neon-btn:hover .faulty-letter{
+    animation:none;
+    text-shadow: none;
+    opacity: 1;
+}
+@keyframes faulty-flicker {
+    0%{
+        opacity: 0.1;
+    }
+    2%{
+        opacity: 0.1;
+    }
+    4%{
+        opacity: 0.5;
+    }
+    19%{
+        opacity: 0.5;
+    }
+    21%{
+        opacity: 0.1;
+    }
+    23%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 0.5;
+    }
+    83%{
+        opacity: 0.4;
+    }
+    87%{
+        opacity: 1;
+    }
+}
+
+@keyframes text-flicker {
+    0%{
+        opacity: 0.1;
+    }
+    2%{
+        opacity: 1;
+    }
+    8%{
+        opacity: 0.1;
+    }
+    9%{
+        opacity: 1;
+    }
+    12%{
+        opacity: 0.1;
+    }
+    20%{
+        opacity: 1;
+    }
+    25%{
+        opacity: 0.3;
+    }
+    30%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 0.7;
+    }
+    72%{
+        opacity: 0.2;
+    }
+    77%{
+        opacity: 0.9;
+    }
+    100%{
+        opacity: 0.9;
+    }
+}
+
+@keyframes border-flicker {
+    0%{
+        opacity: 0.1;
+    }
+    2%{
+        opacity: 1;
+    }
+    4%{
+        opacity: 0.1;
+    }
+    8%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 0.7;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+.spot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.sob{
+    justify-content: center;
+    width: 50%;
+}
+
+.sob h2{
+    font-family: 'Resin', sans-serif;
+    text-align: center;
+    font-size: 200%;
+}
+
+.sob p{
+    font-size: 100%;
+    padding: 5px;
+    justify-content: baseline;
+}
+
+.con-vid{
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.con-vid video{
+    margin-left: 40%;
+    width: 30%;
+}
+
+
+
+
+footer{
+    margin-top: 50px;
+    background-color: var(--black);
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas iguales */
+    text-align: center; /* Centra el texto dentro de cada div */
+    align-items: center; 
+    height: auto;
+    font-size: 70%;
+}
+
+.redes{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-bottom: auto;
+    padding: 5px;
+}
+
+.con{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-bottom: auto;
+    padding: 5px;
+}
+
+.con h1{
+    margin-bottom: 10px;
+}
+
+.men{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-bottom: auto;
+    padding: 5px;
+}
+
+.men h1{
+    margin-bottom: 10px;
+}
+
+.men ul{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: left;
+    padding:10px;
+    margin:0;
+    z-index: 1;
+    text-align: left;
+}
+
+
+.men ul li{
+    
+    display: flex;
+    justify-content: left;
+  
+}
+
+.men ul li a{
+ 
+    position: relative;
+    font-size: 1.5em;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke:1px rgba(255,255,255,0.5);
+    
+}
